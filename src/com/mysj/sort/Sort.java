@@ -23,6 +23,7 @@ public class Sort {
      * @param input
      */
     public static void bubbleSort(int[] input){
+        System.out.println("hello");
         for (int i = 0; i < input.length; i++) {
             //优化算法，当第一次循环的时候没有发生交换，就说明有序，不执行后续
             boolean isSort = true;
