@@ -6,10 +6,11 @@ package com.mysj.sort;
 public class Sort {
     //主方法测试
     public static void main(String[] args) {
-        int[] input = {12,2,18,9,5,7};
+        int[] input = {12,2,18,9,5,7,99};
         //bubbleSort(input);
         //selectSort(input);
-        insertSort(input);
+        //insertSort(input);
+        shellSort(input);
         for (int i : input) {
             System.out.println(i);
         }
@@ -44,7 +45,7 @@ public class Sort {
     }
 
     /**
-     * 实现冒泡排序
+     * 实现选择排序
      * 时间复杂度    时间复杂度（最坏）   时间复杂度（最好）   空间复杂度   稳定性
      * O(N^2)       O(N^2)              O(N^2)              o(1)        稳定
      * 升序
@@ -67,7 +68,7 @@ public class Sort {
     }
 
     /**
-     * 实现冒泡排序
+     * 实现插入排序
      * 时间复杂度    时间复杂度（最坏）   时间复杂度（最好）   空间复杂度   稳定性
      * O(N^2)       O(N^2)              O(N)              o(1)        稳定
      *  升序
@@ -89,6 +90,35 @@ public class Sort {
         }
     }
 
+    /**
+     * 实现希尔排序
+     * 时间复杂度    时间复杂度（最坏）   时间复杂度（最好）   空间复杂度   稳定性
+     * O(N^1.3)       O(N^2)              O(N)              o(1)        稳定
+     *  升序
+     * @param input
+     */
+    public static void shellSort(int[] input){
+        int length = input.length;
+        //区间
+        int gap = 1;
+        while(gap<length){
+            //区间一般为1/2到1/3之间
+            gap = gap*3 + 1;
+        }
+        //跨区间排序
+        while(gap > 0){
+            for (int i = gap; i < length; i++) {
+                int temp = input[i];
+                int j = i - gap;
+                while (j>=0&&input[j]>temp){
+                    input[j+gap] = input[j];
+                    j -= gap;
+                }
+                input[j+gap] = temp;
+            }
+            gap = gap / 3;
+        }
+    }
 
 }
 
