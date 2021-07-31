@@ -34,7 +34,7 @@ public class Sort {
             boolean isSort = true;
             for (int j = 0; j < input.length-i-1; j++) {
                 int temp = 0;
-                if (input[j]>input[j+1]){
+                if (input[j] > input[j+1]){
                     temp = input[j];
                     input[j] = input[j+1];
                     input[j+1] = temp;
@@ -60,7 +60,7 @@ public class Sort {
             int min = i;
             int temp = 0;
             for (int j = i+1; j < input.length; j++) {
-                if (input[min]>input[j]){
+                if (input[min] > input[j]){
                     min = j;
                 }
             }
@@ -83,7 +83,7 @@ public class Sort {
             int temp = input[i];
             int j = 0;
             for (  j = i-1; j >= 0; j--) {
-                if (temp<input[j]){
+                if (temp < input[j]){
                     //往后移动
                     input[j+1] = input[j];
                 }else {
@@ -105,7 +105,7 @@ public class Sort {
         int length = input.length;
         //区间
         int gap = 1;
-        while(gap<length){
+        while(gap < length){
             //区间一般为1/2到1/3之间
             gap = gap*3 + 1;
         }
@@ -114,7 +114,7 @@ public class Sort {
             for (int i = gap; i < length; i++) {
                 int temp = input[i];
                 int j = i - gap;
-                while (j>=0&&input[j]>temp){
+                while (j>=0 && input[j] > temp){
                     input[j+gap] = input[j];
                     j -= gap;
                 }
