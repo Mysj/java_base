@@ -6,11 +6,15 @@ package com.mysj.sort;
 public class Sort {
     //主方法测试
     public static void main(String[] args) {
-        int[] input = {12,2,18,9,5,7,99};
+        int[] input = {12,2,18,9,5,7,99,13};
         //bubbleSort(input);
         //selectSort(input);
         //insertSort(input);
-        shellSort(input);
+        //shellSort(input);
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(input,0,input.length - 1);
+
         for (int i : input) {
             System.out.println(i);
         }
@@ -118,6 +122,17 @@ public class Sort {
             }
             gap = gap / 3;
         }
+    }
+
+    /**
+     * 实现归并排序
+     * 时间复杂度    时间复杂度（最坏）   时间复杂度（最好）   空间复杂度   稳定性
+     * O(NlogN)       O(NlogN)             O(NlogN)          o(N)        稳定
+     *  升序
+     * @param input
+     */
+    public static void mergeSort(int[] input){
+
     }
 
 }
