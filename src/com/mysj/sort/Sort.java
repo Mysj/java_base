@@ -7,19 +7,34 @@ public class Sort {
     //主方法测试
     public static void main(String[] args) {
         int[] input = {12,2,18,9,5,7,99,13};
-        //bubbleSort(input);
+        bubbleSort(input);
         //selectSort(input);
         //insertSort(input);
         //shellSort(input);
 
-        QuickSort quickSort = new QuickSort();
-        quickSort.sort(input,0,input.length - 1);
+        //QuickSort quickSort = new QuickSort();
+        //quickSort.sort(input,0,input.length - 1);
 
         for (int i : input) {
             System.out.println(i);
         }
     }
 
+
+    /**
+     * 交换算法，用异或
+     * 异或的性质：0^a = a; a^a = 0;
+     * 使用这样的交换算法前提是 这两个交换的值，在内存中是两个位置，不是同一个位置的数据
+     *                        否则该内存区域的数据将会被抹成 0
+     * @param a
+     * @param i
+     * @param j
+     */
+    public static void swap(int[]a,int i,int j){
+        a[i] = a[i] ^ a[j];
+        a[j] = a[i] ^ a[j];
+        a[i] = a[i] ^ a[j];
+    }
 
     /**
      * 实现冒泡排序
@@ -35,9 +50,10 @@ public class Sort {
             for (int j = 0; j < input.length-i-1; j++) {
                 int temp = 0;
                 if (input[j] > input[j+1]){
-                    temp = input[j];
+                    /*temp = input[j];
                     input[j] = input[j+1];
-                    input[j+1] = temp;
+                    input[j+1] = temp;*/
+                    swap(input,j,j+1);
                     isSort = false;
                 }
             }
