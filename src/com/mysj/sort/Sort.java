@@ -80,6 +80,7 @@ public class Sort {
                     min = j;
                 }
             }
+            
             //交换位置
             temp = input[i];
             input[i] = input[min];
