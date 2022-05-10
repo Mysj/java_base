@@ -7,9 +7,9 @@ public class Sort {
     //主方法测试
     public static void main(String[] args) {
         int[] input = {12,2,18,9,5,7,99,13};
-        bubbleSort(input);
+        //bubbleSort(input);
         //selectSort(input);
-        //insertSort(input);
+        insertSort(input);
         //shellSort(input);
 
         //QuickSort quickSort = new QuickSort();
