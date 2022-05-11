@@ -14,12 +14,18 @@ public class DoubleLockLHan {
     private DoubleLockLHan(){};
 
     public static DoubleLockLHan getInstance(){
-        //给代码块加锁
-        synchronized(DoubleLockLHan.class){
-            if (instance == null){
-                instance = new DoubleLockLHan();
+
+        if (instance == null){
+            //给代码块加锁
+            synchronized(DoubleLockLHan.class){
+                //防止排队等锁的对象进入同步块后又new一个对象出来导致得到不同的实例
+                if (instance == null){
+                    instance = new DoubleLockLHan();
+                }
             }
         }
+
+
         return instance;
     }
 }
